@@ -6,10 +6,12 @@ html
     link(href='http://fonts.googleapis.com/css?family=Roboto:400,100,300', rel='stylesheet', type='text/css')
     script(src='//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js')
     script(type='text/javascript', src='js/main.js')
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    meta(http-equiv="Cache-control" content="public")
   body
     header Typing - Beta
     .text
     .input.center
-      input.type(type='text', autocomplete='false')
+      input.type(type='text' autocomplete='false' autocapitalize="off" autofocus="true" spellcheck="false" value="" placeholder="")
     .score
       | 0
