@@ -23,7 +23,7 @@ gulp.task('stylus-compile' , function() {
 });
 
 gulp.task('coffee-compile', function() {
-	cleanFiles(paths.js);
+	//cleanFiles(paths.js); Possible ASync problem, will fix... one day
 	console.log("Compiling Coffee".fg(0, 255, 0));
 	return gulp.src(paths.coffee)
 		.pipe(coffee().on('error', errorHandle))
