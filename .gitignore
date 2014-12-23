@@ -15,4 +15,7 @@ results
 *.pid
 *.gz
 
+*.css
+*.js
+
 node_modules
