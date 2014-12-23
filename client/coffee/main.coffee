@@ -17,6 +17,7 @@ $(document).ready ->
       console.log 5
       if $(".active").text() is $(this).val().slice(0, -1)
         $(".active").removeClass "wrong"
+        $(".active").addClass "correct"
         correct++
         $(".score").text correct
       else
@@ -27,9 +28,8 @@ $(document).ready ->
       $(current).next().addClass "active"
       $(".type").val ""
 
-      #if current.position().top != $(".active").position().top + 5
-      console.log 1, current.position().top
-      console.log 2, $(".active").position().top + 5
+      if current.position().top != $(".active").position().top + 5
+          $(".correct, .wrong").remove();
     else
       sofar = $(this).val()
       len = sofar.length
