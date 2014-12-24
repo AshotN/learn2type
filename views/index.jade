@@ -12,8 +12,12 @@ html
     header 
       .headertext Typing - Beta
     .text
-    .input.center
-      input.type(type='text' autocorrect='off' autocomplete='off' autocapitalize='off' autofocus='true' spellcheck='false' value='' placeholder='')
+
+    .inputcontainer.center.inline-block.full
+      .input.inline-block
+        input.type(type='text' autocorrect='off' autocomplete='off' autocapitalize='off' autofocus='true' spellcheck='false' value='' placeholder='')
+      .timeleft.inline-block
+        .countdown 60
     .score Correct: 
       span.scorenum 0
     .incorrect Incorrect: 

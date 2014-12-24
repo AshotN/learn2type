@@ -1,3 +1,49 @@
+#http://stackoverflow.com/a/1192001
+Countdown = (options) ->
+  decrementCounter = ->
+    updateStatus seconds
+    if seconds is 0
+      counterEnd()
+      instance.stop()
+    seconds--
+    return
+  timer = undefined
+  instance = this
+  seconds = options.seconds or 10
+  running = false
+  updateStatus = options.onUpdateStatus or ->
+
+  counterEnd = options.onCounterEnd or ->
+
+  @start = ->
+    console.log "started"
+    running = true
+    clearInterval timer
+    timer = 0
+    seconds = options.seconds
+    timer = setInterval(decrementCounter, 1000)
+    return
+
+  @stop = ->
+    clearInterval timer
+    return
+
+  @running = ->
+    return running
+
+  return
+
+myCounter = new Countdown(
+  seconds: 59 # number of seconds to count down
+  onUpdateStatus: (sec) -> # callback for each second
+    $(".countdown").text sec
+    return
+
+  onCounterEnd: -> # final action
+    $('.type').val "Time's Up"
+    $('.type').attr 'disabled', true
+    return
+)
 $(document).ready ->
   $.getJSON "/getwords", (words) ->
 
@@ -11,6 +57,14 @@ $(document).ready ->
     correct = 0
     wrong = 0
     $('.type').keyup (e) ->
+      console.log e.key
+      #Ignore irrelevant keys
+      if e.key?
+        if(e.key.length > 1 && (e.key.toLowerCase() != "del" && e.key.toLowerCase() != "backspace" && e.key.toLowerCase() != "delete") )
+          return
+      console.log 1, myCounter.running()
+      if not myCounter.running()
+        myCounter.start()
       code = e.keyCode or e.which
       if code is 32
         if $('.active').text() is $(this).val().slice(0, -1)
