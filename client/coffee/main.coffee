@@ -26,7 +26,6 @@ $(document).ready ->
         $(current).removeClass 'active' 
    
         if($(current).next().length == 0)
-          console.log "Finished"
           $('.type').val 'Finished'
           $('.type').attr 'disabled', true
           return
@@ -37,7 +36,7 @@ $(document).ready ->
         if current.position().top != $('.active').position().top
             $('.correct, .wrong').remove();
       else
-        sofar = $(this).val()
+        sofar = $(this).val().replace(' ','')
         len = sofar.length
         currentword = $('.active').text()
         unless sofar is currentword.slice(0, len)
