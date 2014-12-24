@@ -9,9 +9,12 @@ html
     meta(name='viewport' content='width=device-width, initial-scale=1')
     meta(http-equiv='Cache-control' content='public')
   body
-    header Typing - Beta
+    header 
+      .headertext Typing - Beta
     .text
     .input.center
       input.type(type='text' autocorrect='off' autocomplete='off' autocapitalize='off' autofocus='true' spellcheck='false' value='' placeholder='')
-    .score
-      | 0
+    .score Corect: 
+      span.scorenum 0
+    .incorrect Incorrect: 
+      span.incorrectnum 0
