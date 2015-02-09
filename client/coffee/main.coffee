@@ -45,7 +45,7 @@ myCounter = new Countdown(
     return
 )
 $(document).ready ->
-  $.getJSON "/getwords", (words) ->
+  $.getJSON "./getwords", (words) ->
 
     $(words).each (index, word) ->
       if index is 0
